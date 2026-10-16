@@ -1,0 +1,1673 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mohammed Farman | Aspiring Developer</title>
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #07111f;
+    --bg-soft: #0b1728;
+    --card: rgba(15, 31, 50, 0.72);
+
+    --text: #edf6ff;
+    --muted: #91a4b8;
+
+    --blue: #38bdf8;
+    --blue-dark: #0284c7;
+    --cyan: #67e8f9;
+
+    --border: rgba(148, 163, 184, 0.14);
+
+    --shadow: 0 25px 70px rgba(0,0,0,.35);
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(56,189,248,.09), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(34,211,238,.07), transparent 28%),
+        radial-gradient(circle at 50% 100%, rgba(2,132,199,.08), transparent 30%),
+        var(--bg);
+
+    color: var(--text);
+    font-family: "Inter", Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* =========================================================
+   AMBIENT BACKGROUND
+========================================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+
+    background-size: 70px 70px;
+
+    mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+
+.ambient {
+    position: fixed;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+
+    background: rgba(56,189,248,.06);
+    filter: blur(90px);
+
+    pointer-events: none;
+    z-index: -1;
+
+    animation: floatAmbient 9s ease-in-out infinite;
+}
+
+.ambient.one {
+    top: 5%;
+    left: -180px;
+}
+
+.ambient.two {
+    right: -180px;
+    top: 45%;
+    animation-delay: 2s;
+}
+
+@keyframes floatAmbient {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(50px);
+    }
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+
+    padding: 17px 6%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(7,17,31,.78);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+    color: white;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -.5px;
+}
+
+.nav-logo span {
+    color: var(--blue);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    padding: 8px 13px;
+    border-radius: 10px;
+
+    transition: .25s ease;
+}
+
+nav a:hover {
+    color: white;
+    background: rgba(56,189,248,.08);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main {
+    width: min(1100px, 90%);
+    margin: auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 88vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: rgba(56,189,248,.045);
+
+    filter: blur(80px);
+
+    z-index: -1;
+}
+
+.small-title {
+    color: var(--blue);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 12px;
+}
+
+h1 {
+    color: white;
+
+    font-size: clamp(48px, 9vw, 88px);
+
+    line-height: 1;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 18px;
+}
+
+.highlight {
+    color: transparent;
+
+    background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--cyan)
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.hero h2 {
+    color: #cbd5e1;
+
+    font-size: clamp(18px, 3vw, 25px);
+
+    font-weight: 600;
+}
+
+#typing {
+    color: var(--blue);
+}
+
+.hero-text {
+    max-width: 700px;
+
+    margin: 24px auto;
+
+    color: var(--muted);
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+
+    margin-top: 16px;
+}
+
+.btn {
+    position: relative;
+
+    padding: 12px 21px;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: .3s ease;
+
+    overflow: hidden;
+}
+
+.primary {
+    background: var(--blue);
+    color: #04111d;
+
+    box-shadow: 0 10px 30px rgba(56,189,248,.16);
+}
+
+.primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(56,189,248,.25);
+}
+
+.secondary {
+    color: var(--blue);
+
+    border: 1px solid rgba(56,189,248,.35);
+
+    background: rgba(56,189,248,.04);
+}
+
+.secondary:hover {
+    background: rgba(56,189,248,.1);
+    transform: translateY(-4px);
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
+
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 35px;
+
+    background: linear-gradient(
+        to bottom,
+        var(--blue),
+        transparent
+    );
+
+    animation: scrollLine 1.5s infinite;
+}
+
+@keyframes scrollLine {
+    0%,100% {
+        opacity: .3;
+        transform: scaleY(.6);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card {
+    margin: 55px 0;
+
+    padding: 38px;
+
+    border-radius: 25px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow: var(--shadow);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -100px;
+    right: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(56,189,248,.07);
+
+    filter: blur(20px);
+}
+
+.card h2 {
+    color: white;
+
+    font-size: 29px;
+
+    margin-bottom: 22px;
+
+    letter-spacing: -.7px;
+}
+
+.card h2::before {
+    content: "";
+
+    display: inline-block;
+
+    width: 5px;
+    height: 25px;
+
+    background: var(--blue);
+
+    border-radius: 10px;
+
+    margin-right: 11px;
+
+    vertical-align: -3px;
+}
+
+.card p {
+    color: var(--muted);
+
+    font-size: 16px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.education-highlight {
+    color: var(--blue);
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+.education-item {
+    padding: 22px;
+
+    margin-top: 15px;
+
+    border-radius: 17px;
+
+    background: rgba(255,255,255,.025);
+
+    border: 1px solid rgba(148,163,184,.09);
+
+    border-left: 3px solid var(--blue);
+
+    transition: .3s ease;
+}
+
+.education-item:hover {
+    transform: translateX(5px);
+
+    background: rgba(56,189,248,.035);
+}
+
+.education-item h3 {
+    color: white;
+
+    font-size: 20px;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 7px;
+
+    font-size: 14px;
+}
+
+.skill-info span:first-child {
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+.skill-info span:last-child {
+    color: #64748b;
+}
+
+.skill-bar {
+    height: 7px;
+
+    background: #142236;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+
+    width: 0;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        90deg,
+        var(--blue-dark),
+        var(--cyan)
+    );
+
+    box-shadow: 0 0 15px rgba(56,189,248,.25);
+
+    transition: width 1.4s cubic-bezier(.2,.8,.2,1);
+}
+
+.html {
+    --skill-width: 100%;
+}
+
+.css {
+    --skill-width: 50%;
+}
+
+.js {
+    --skill-width: 45%;
+}
+
+.python {
+    --skill-width: 40%;
+}
+
+.github {
+    --skill-width: 45%;
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.project {
+    padding: 26px;
+
+    border-radius: 19px;
+
+    background: rgba(255,255,255,.025);
+
+    border: 1px solid rgba(148,163,184,.1);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: .35s ease;
+}
+
+.project::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(56,189,248,.08),
+            transparent 45%
+        );
+
+    opacity: 0;
+
+    transition: .35s ease;
+}
+
+.project:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(56,189,248,.28);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.25),
+        0 0 30px rgba(56,189,248,.05);
+}
+
+.project:hover::before {
+    opacity: 1;
+}
+
+.project-content {
+    position: relative;
+    z-index: 1;
+}
+
+.project-number {
+    color: var(--blue);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.project h3 {
+    color: white;
+
+    font-size: 24px;
+
+    margin: 6px 0 10px;
+}
+
+.project p {
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+}
+
+.project-status {
+    color: #67e8f9 !important;
+
+    font-size: 12px !important;
+
+    font-weight: 700;
+}
+
+.tags {
+    display: flex;
+
+    gap: 7px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 20px;
+}
+
+.tags span {
+    padding: 5px 10px;
+
+    border-radius: 8px;
+
+    color: #9fe8fb;
+
+    background: rgba(56,189,248,.06);
+
+    border: 1px solid rgba(56,189,248,.18);
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+.project-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--blue);
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: .25s ease;
+}
+
+.project-link:hover {
+    gap: 11px;
+}
+
+
+/* =========================================================
+   GOALS
+========================================================= */
+
+.goals {
+    list-style: none;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+}
+
+.goals li {
+    padding: 13px 15px;
+
+    color: var(--muted);
+
+    background: rgba(255,255,255,.025);
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(148,163,184,.08);
+
+    transition: .25s ease;
+}
+
+.goals li:hover {
+    transform: translateX(5px);
+
+    color: white;
+
+    border-color: rgba(56,189,248,.2);
+}
+
+.goals li::before {
+    content: "→";
+
+    color: var(--blue);
+
+    margin-right: 9px;
+}
+
+
+/* =========================================================
+   DEVELOPER
+========================================================= */
+
+.developer-box {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+.developer-avatar {
+    min-width: 80px;
+    height: 80px;
+
+    border-radius: 22px;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 30px;
+    font-weight: 800;
+
+    color: #04111d;
+
+    background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--cyan)
+    );
+
+    box-shadow:
+        0 10px 35px rgba(56,189,248,.18);
+}
+
+.developer-name {
+    color: white;
+
+    font-size: 23px;
+
+    font-weight: 800;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   REVEAL ANIMATIONS
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(45px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    text-align: center;
+
+    padding: 55px 20px;
+
+    margin-top: 30px;
+
+    border-top: 1px solid var(--border);
+}
+
+footer p {
+    color: #53657a;
+
+    font-size: 13px;
+
+    margin: 5px;
+}
+
+.footer-main {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 15px 5%;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    nav {
+        gap: 3px;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 12px;
+
+        padding: 7px 9px;
+    }
+
+    .hero {
+        min-height: 82vh;
+    }
+
+    h1 {
+        letter-spacing: -2.5px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .goals {
+        grid-template-columns: 1fr;
+    }
+
+    .developer-box {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 500px) {
+
+    main {
+        width: 92%;
+    }
+
+    .card {
+        padding: 25px;
+
+        border-radius: 21px;
+    }
+
+    .hero-text {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+    .btn {
+        text-align: center;
+    }
+
+    .scroll-down {
+        display: none;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="ambient one"></div>
+<div class="ambient two"></div>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="navbar">
+
+    <div class="nav-logo">
+        <span>M</span>ohammed <span>F</span>arman
+    </div>
+
+    <nav>
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#goals">Goals</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section id="hero" class="hero reveal">
+
+    <p class="small-title">
+        WELCOME TO MY PORTFOLIO
+    </p>
+
+    <h1>
+        Mohammed <span class="highlight">Farman</span>
+    </h1>
+
+    <h2>
+        High Schooler • Student •
+        <span id="typing"></span>
+    </h2>
+
+    <p class="hero-text">
+        Heyy people! I'm Mohammed Farman, a 9th grade student
+        who loves technology, coding, sports and building things
+        from scratch. I'm exploring web development, programming
+        and different ways to turn ideas into real projects.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#projects" class="btn primary">
+            View Projects →
+        </a>
+
+        <a href="#about" class="btn secondary">
+            About Me
+        </a>
+
+    </div>
+
+    <div class="scroll-down">
+        <span>SCROLL TO EXPLORE</span>
+        <div class="scroll-line"></div>
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section id="about" class="card reveal">
+
+    <h2>About Me</h2>
+
+    <p>
+        I'm a 9th grade student and an aspiring developer who is
+        genuinely curious about technology and how things work.
+    </p>
+
+    <p>
+        I started exploring programming through HTML and CSS
+        and gradually moved towards JavaScript and Python.
+        I enjoy experimenting with websites, applications and
+        different ideas that I can build from scratch.
+    </p>
+
+    <p>
+        Apart from coding, I'm interested in entrepreneurship,
+        AI, robotics and learning how technology can solve
+        real-world problems.
+    </p>
+
+    <p>
+        I'm also an athlete in
+        <span class="education-highlight">badminton and volleyball</span>,
+        with around
+        <span class="education-highlight">4 years of experience</span>.
+    </p>
+
+</section>
+
+
+<!-- =========================================================
+     EDUCATION
+========================================================= -->
+
+<section id="education" class="card reveal">
+
+    <h2>Education</h2>
+
+    <div class="education-item">
+
+        <h3>9th Grade Student</h3>
+
+        <p>
+            Currently studying in
+            <span class="education-highlight">9th grade</span>
+            and working towards building a strong foundation
+            for my future.
+        </p>
+
+    </div>
+
+
+    <div class="education-item">
+
+        <h3>Academic Strengths</h3>
+
+        <p>
+            <span class="education-highlight">Maths</span> —
+            Good
+        </p>
+
+        <p>
+            <span class="education-highlight">Physics</span> —
+            Good
+        </p>
+
+        <p>
+            <span class="education-highlight">Reasoning</span> —
+            Good
+        </p>
+
+        <p>
+            <span class="education-highlight">Aptitude</span> —
+            Currently improving
+        </p>
+
+    </div>
+
+
+    <div class="education-item">
+
+        <h3>Athlete</h3>
+
+        <p>
+            <span class="education-highlight">
+                Badminton & Volleyball
+            </span>
+        </p>
+
+        <p>
+            Around 4 years of experience in sports.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SKILLS
+========================================================= -->
+
+<section id="skills" class="card reveal">
+
+    <h2>Skills</h2>
+
+    <div class="skills-container">
+
+        <div class="skill">
+
+            <div class="skill-info">
+                <span>HTML</span>
+                <span>Completed</span>
+            </div>
+
+            <div class="skill-bar">
+                <div class="skill-progress html"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-info">
+                <span>CSS</span>
+                <span>50% Completed</span>
+            </div>
+
+            <div class="skill-bar">
+                <div class="skill-progress css"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-info">
+                <span>JavaScript</span>
+                <span>Learning</span>
+            </div>
+
+            <div class="skill-bar">
+                <div class="skill-progress js"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-info">
+                <span>Python</span>
+                <span>Learning</span>
+            </div>
+
+            <div class="skill-bar">
+                <div class="skill-progress python"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-info">
+                <span>Git & GitHub</span>
+                <span>Learning</span>
+            </div>
+
+            <div class="skill-bar">
+                <div class="skill-progress github"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
+
+<section id="projects" class="card reveal">
+
+    <h2>Projects</h2>
+
+    <div class="projects-grid">
+
+
+        <!-- CAMPUSBOARD -->
+
+        <article class="project">
+
+            <div class="project-content">
+
+                <span class="project-number">
+                    PROJECT 01
+                </span>
+
+                <h3>
+                    Campus<span class="highlight">Board</span>
+                </h3>
+
+                <p class="project-status">
+                    ● Live Project
+                </p>
+
+                <p>
+                    CampusBoard is a student-focused dashboard
+                    designed to bring timetables, assignments,
+                    exams, resources, tasks and study tools into
+                    one organized workspace.
+                </p>
+
+                <div class="tags">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>LocalStorage</span>
+
+                </div>
+
+                <a
+                    href="https://campusboardv2-five.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link"
+                >
+                    Open CampusBoard →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- CIVICLINK -->
+
+        <article class="project">
+
+            <div class="project-content">
+
+                <span class="project-number">
+                    PROJECT 02
+                </span>
+
+                <h3>
+                    Civic<span class="highlight">Link</span>
+                </h3>
+
+                <p class="project-status">
+                    ● Prototype Live
+                </p>
+
+                <p>
+                    CivicLink is a civic issue reporting platform
+                    designed to help communities report problems,
+                    record complaints and make civic issues easier
+                    to understand and track.
+                </p>
+
+                <div class="tags">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>Geolocation</span>
+                    <span>LocalStorage</span>
+
+                </div>
+
+                <a
+                    href="https://civiclink.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link"
+                >
+                    Open CivicLink →
+                </a>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     GOALS
+========================================================= -->
+
+<section id="goals" class="card reveal">
+
+    <h2>My Goals</h2>
+
+    <ul class="goals">
+
+        <li>Become a stronger programmer</li>
+
+        <li>Build useful real-world projects</li>
+
+        <li>Learn more about JavaScript and Python</li>
+
+        <li>Explore AI and robotics</li>
+
+        <li>Build and launch my own projects</li>
+
+        <li>Learn about entrepreneurship and startups</li>
+
+    </ul>
+
+</section>
+
+
+<!-- =========================================================
+     DEVELOPER
+========================================================= -->
+
+<section id="developer" class="card reveal">
+
+    <h2>Meet the Developer</h2>
+
+    <div class="developer-box">
+
+        <div class="developer-avatar">
+            MF
+        </div>
+
+        <div>
+
+            <div class="developer-name">
+                Mohammed Farman
+            </div>
+
+            <p>
+                A student and aspiring developer who enjoys
+                building websites, experimenting with technology
+                and turning ideas into working projects.
+            </p>
+
+            <p>
+                Currently learning HTML, CSS, JavaScript and Python,
+                while exploring AI, machine learning and other
+                areas of technology.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <p class="footer-main">
+        Built with HTML, CSS & JavaScript
+    </p>
+
+    <p>
+        © 2026 Mohammed Farman
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   TYPING ANIMATION
+========================================================= */
+
+const words = [
+    "Aspiring Developer",
+    "Coder",
+    "Tech Enthusiast",
+    "Future Engineer"
+];
+
+const typingElement =
+    document.getElementById("typing");
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeEffect() {
+
+    const currentWord = words[wordIndex];
+
+    if (!deleting) {
+
+        typingElement.textContent =
+            currentWord.substring(0, charIndex + 1);
+
+        charIndex++;
+
+        if (charIndex === currentWord.length) {
+
+            deleting = true;
+
+            setTimeout(typeEffect, 1500);
+
+            return;
+        }
+
+    } else {
+
+        typingElement.textContent =
+            currentWord.substring(0, charIndex - 1);
+
+        charIndex--;
+
+        if (charIndex === 0) {
+
+            deleting = false;
+
+            wordIndex =
+                (wordIndex + 1) % words.length;
+        }
+    }
+
+    setTimeout(
+        typeEffect,
+        deleting ? 45 : 85
+    );
+}
+
+typeEffect();
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+const observer =
+    new IntersectionObserver(
+
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target
+                        .classList
+                        .add("show");
+
+                    observer.unobserve(entry.target);
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+    );
+
+revealElements.forEach((element) => {
+    observer.observe(element);
+});
+
+
+/* =========================================================
+   SKILL BAR ANIMATION
+========================================================= */
+
+const skillBars =
+    document.querySelectorAll(".skill-progress");
+
+const skillObserver =
+    new IntersectionObserver(
+
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    const bar = entry.target;
+
+                    bar.style.width =
+                        getComputedStyle(bar)
+                            .getPropertyValue(
+                                "--skill-width"
+                            );
+
+                    skillObserver.unobserve(bar);
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.4
+        }
+    );
+
+skillBars.forEach((bar) => {
+    skillObserver.observe(bar);
+});
+
+
+/* =========================================================
+   MOUSE PARALLAX FOR PROJECT CARDS
+========================================================= */
+
+const projects =
+    document.querySelectorAll(".project");
+
+projects.forEach((project) => {
+
+    project.addEventListener("mousemove", (e) => {
+
+        if (window.innerWidth < 800) return;
+
+        const rect =
+            project.getBoundingClientRect();
+
+        const x =
+            e.clientX - rect.left;
+
+        const y =
+            e.clientY - rect.top;
+
+        const rotateX =
+            ((y / rect.height) - .5) * -4;
+
+        const rotateY =
+            ((x / rect.width) - .5) * 4;
+
+        project.style.transform =
+            `translateY(-8px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)`;
+    });
+
+
+    project.addEventListener("mouseleave", () => {
+
+        project.style.transform = "";
+    });
+
+});
+
+
+/* =========================================================
+   NAVBAR ACTIVE SECTION
+========================================================= */
+
+const sections =
+    document.querySelectorAll("main section[id]");
+
+const navLinks =
+    document.querySelectorAll("nav a");
+
+const sectionObserver =
+    new IntersectionObserver(
+
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    navLinks.forEach((link) => {
+
+                        link.style.color = "";
+
+                        if (
+                            link.getAttribute("href") ===
+                            "#" + entry.target.id
+                        ) {
+
+                            link.style.color =
+                                "#38bdf8";
+                        }
+
+                    });
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.45
+        }
+    );
+
+sections.forEach((section) => {
+    sectionObserver.observe(section);
+});
+
+
+/* =========================================================
+   SMALL PAGE LOAD EFFECT
+========================================================= */
+
+window.addEventListener("load", () => {
+
+    document.body.style.opacity = "0";
+
+    requestAnimationFrame(() => {
+
+        document.body.style.transition =
+            "opacity .7s ease";
+
+        document.body.style.opacity = "1";
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
+```
